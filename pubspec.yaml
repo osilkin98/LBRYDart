@@ -2,3 +2,6 @@ name: LBRYDart
 description: LBRY API binding for the Dart Programming language
 
 version: 0.0.1
+
+dependencies:
+  http: any
