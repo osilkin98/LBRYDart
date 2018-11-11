@@ -15,29 +15,24 @@ class LbryBaseApi {
   static Future<Map> _makeRequest(String url, String method,
       {Map<String, dynamic> params = const {}, List<String> basicAuth,
       num timeout = 600.0}) async {
-    /*
-    String paramString = '';
 
-    if(params != null) {
-
-      params.forEach((param, value){
-        paramString += '"${param}": "${value}",';
-      });
-    }*/
-
+    // Creates a map for the body of the request
     Map body = {"method": method, "params": params,
                 "jsonrpc": "2.0", "id": ++LbryBaseApi._requestId};
 
-
-    String data = jsonEncode(body);
+    String jsonData = jsonEncode(body);
 
     Map<String, String> headers = {
       "Content-Type": "application/json-rpc",
       "user-agent": "LBRY Dart 2.0.0 API"
     };
 
-    http.Response response = await http.post(url, headers: headers, body: data);
-    
+    // await for the http response to be returned
+    http.Response response = await http.post(url,
+        headers: headers,
+        body: jsonData
+    );
+
     return jsonDecode(response.body);
   }
 
