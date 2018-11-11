@@ -12,7 +12,7 @@ class LbryBaseApi {
   /// it wants to perform the function [method] with the parameters
   /// [params] using the username and password pair [basicAuth]
   /// and times out after [timeout] seconds
-  static Future<Map> makeRequest(String url, String method,
+  static Future<Map> _makeRequest(String url, String method,
       {Map<String, dynamic> params = const {}, List<String> basicAuth,
       num timeout = 600.0}) async {
     /*
