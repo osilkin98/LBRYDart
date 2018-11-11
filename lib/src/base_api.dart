@@ -14,7 +14,7 @@ class LbryBaseApi {
   /// and times out after [timeout] seconds
   static Future<Map> _makeRequest(String url, String method,
       {Map<String, dynamic> params = const {}, List<String> basicAuth,
-      num timeout = 600.0}) async {
+      int timeout = 600}) async {
 
     // Creates a map for the body of the request
     Map body = {"method": method, "params": params,
@@ -27,13 +27,27 @@ class LbryBaseApi {
       "user-agent": "LBRY Dart 2.0.0 API"
     };
 
-    // await for the http response to be returned
-    http.Response response = await http.post(url,
-        headers: headers,
-        body: jsonData
-    );
+    Map jsonResponse;
 
-    return jsonDecode(response.body);
+    try {
+      // await for the http response to be returned
+      http.Response response = await http.post(url,
+          headers: headers,
+          body: jsonData
+      ).timeout(Duration(seconds: timeout));
+      jsonResponse = jsonDecode(response.body);
+
+    } catch(error) {
+
+      jsonResponse = {"error": {
+        "type": "timeout",
+        "message": "Server timed out after ${timeout} secs"}
+      };
+
+    } finally {
+      return jsonResponse;
+    }
+
   }
 
 }
