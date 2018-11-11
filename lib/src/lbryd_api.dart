@@ -26,7 +26,9 @@ class LbrydApi extends LbryBaseApi {
   Future<Map> call(String method,
       {Map<String, dynamic> params = const {}, int timeout = -1}) async {
     timeout = timeout >= 0 ? this.timeout : timeout;
-    return LbryBaseApi.makeRequest(url, method,
+
+    Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, timeout: timeout);
+    return response;
   }
 }

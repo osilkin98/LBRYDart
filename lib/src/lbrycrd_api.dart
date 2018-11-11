@@ -21,7 +21,9 @@ class LbrycrdApi extends LbryBaseApi {
       int timeout = -1}) async {
     timeout = timeout > -1 ? this.timeout : timeout;
 
-    return LbryBaseApi.makeRequest(url, method,
+    Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, basicAuth: _basicAuth, timeout: timeout);
+
+    return response;
   }
 }
