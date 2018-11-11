@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert'; // For JSON support
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'exceptions.dart';
 
 class LbryBaseApi {
   static int _requestId = 0;
@@ -40,6 +41,10 @@ class LbryBaseApi {
           .post(url, headers: headers, body: jsonData)
           .timeout(Duration(seconds: timeout));
       jsonResponse = jsonDecode(response.body);
+
+      if(jsonResponse.containsKey("error")) {
+        throw LbryException(jsonResponse);
+      }
     } catch (error) {
       jsonResponse = {
         "error": {
