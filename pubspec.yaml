@@ -5,3 +5,4 @@ version: 0.0.1
 
 dependencies:
   http: any
+  meta: 1.1.6^
