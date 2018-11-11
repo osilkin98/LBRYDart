@@ -25,7 +25,8 @@ class LbrycrdApi extends LbryBaseApi {
   /// If the API experiences an error, [LbryException] is thrown.
   Future<Map> call(method,
       {Map<String, dynamic> params = const {}, int timeout = -1}) async {
-    timeout = timeout > -1 ? this.timeout : timeout;
+
+    timeout = timeout > -1 ? timeout : this.timeout;
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, basicAuth: _basicAuth, timeout: timeout);
