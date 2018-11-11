@@ -1,18 +1,19 @@
 import 'dart:async';
 import 'dart:convert'; // For JSON support
 import 'package:http/http.dart' as http;
-
+import 'package:meta/meta.dart';
 
 class LbryBaseApi {
   static int _requestId = 0;
 
+  @protected
   /// Makes an HTTP request to the specified LBRY URL
   ///
   /// Sends a JSON-RPC 2.0 POST request to [url] specifying that
   /// it wants to perform the function [method] with the parameters
   /// [params] using the username and password pair [basicAuth]
   /// and times out after [timeout] seconds
-  static Future<Map> _makeRequest(String url, String method,
+  static Future<Map> makeRequest(String url, String method,
       {Map<String, dynamic> params = const {}, List<String> basicAuth,
       int timeout = 600}) async {
 
