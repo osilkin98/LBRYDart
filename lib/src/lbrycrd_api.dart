@@ -7,6 +7,11 @@ class LbrycrdApi extends LbryBaseApi {
   static const String url = "http://localhost:9245";
   List<String> _basicAuth;
 
+  /// Constructs a LBRYCRD API object
+  ///
+  /// Uses the credentials [_basicAuth] to log into the
+  /// lbrycrd network, and sets it to timeout after [timeout]
+  /// seconds of unresponsiveness. The default is 600 seconds.
   LbrycrdApi(this._basicAuth,  {this.timeout = 600});
 
   LbrycrdApi.credentials(String username, String password,
