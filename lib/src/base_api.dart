@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class LbryBaseApi {
   static int _requestId = 0;
 
-  /// Makes an HTTP request
+  /// Makes an HTTP request to the specified LBRY URL
   ///
   /// Sends a JSON-RPC 2.0 POST request to [url] specifying that
   /// it wants to perform the function [method] with the parameters
