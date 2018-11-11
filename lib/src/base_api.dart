@@ -41,7 +41,7 @@ class LbryBaseApi {
           .timeout(Duration(seconds: timeout));
       jsonResponse = jsonDecode(response.body);
 
-      if(jsonResponse.containsKey("error")) {
+      if (jsonResponse.containsKey("error")) {
         throw LbryException(jsonResponse);
       }
     } catch (error) {
