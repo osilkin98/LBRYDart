@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'base_api.dart';
 
 class LbrydApi extends LbryBaseApi {
