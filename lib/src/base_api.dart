@@ -14,12 +14,16 @@ class LbryBaseApi {
   /// and times out after [timeout] seconds
   @protected
   static Future<Map> makeRequest(String url, String method,
-      {Map<String, dynamic> params = const {}, List<String> basicAuth,
+      {Map<String, dynamic> params = const {},
+      List<String> basicAuth,
       int timeout = 600}) async {
-
     // Creates a map for the body of the request
-    Map body = {"method": method, "params": params,
-                "jsonrpc": "2.0", "id": ++LbryBaseApi._requestId};
+    Map body = {
+      "method": method,
+      "params": params,
+      "jsonrpc": "2.0",
+      "id": ++LbryBaseApi._requestId
+    };
 
     String jsonData = jsonEncode(body);
 
@@ -32,23 +36,19 @@ class LbryBaseApi {
 
     try {
       // await for the http response to be returned
-      http.Response response = await http.post(url,
-          headers: headers,
-          body: jsonData
-      ).timeout(Duration(seconds: timeout));
+      http.Response response = await http
+          .post(url, headers: headers, body: jsonData)
+          .timeout(Duration(seconds: timeout));
       jsonResponse = jsonDecode(response.body);
-
-    } catch(error) {
-
-      jsonResponse = {"error": {
-        "type": "timeout",
-        "message": "Server timed out after ${timeout} secs"}
+    } catch (error) {
+      jsonResponse = {
+        "error": {
+          "type": "timeout",
+          "message": "Server timed out after ${timeout} secs"
+        }
       };
-
     } finally {
       return jsonResponse;
     }
-
   }
-
 }
