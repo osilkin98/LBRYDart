@@ -23,9 +23,9 @@ class LbrydApi extends LbryBaseApi {
   /// `localhost:5279`. If [timeout] is specified, then it overrides
   /// the initialized
   Future<Map> call(String method,
-      {Map<String, dynamic> params = const {}, int timeout = -1}) async {
+      {Map<String, dynamic> params = const {}, int timeout = 0}) async {
 
-    timeout = timeout > -1 ? timeout : this.timeout;
+    timeout = timeout > 0 ? timeout : this.timeout;
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, timeout: timeout);

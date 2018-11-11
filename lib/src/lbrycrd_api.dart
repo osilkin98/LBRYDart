@@ -10,7 +10,7 @@ class LbrycrdApi extends LbryBaseApi {
   ///
   /// Uses the credentials [_basicAuth] to log into the
   /// lbrycrd network, and sets it to timeout after [timeout]
-  /// seconds of unresponsiveness. The default is 600 seconds.
+  /// seconds of unresponsiveness. The default [timeout] is 600 seconds.
   LbrycrdApi(this._basicAuth, {this.timeout = 600});
 
   LbrycrdApi.credentials(String username, String password, {this.timeout = 600})
@@ -24,9 +24,9 @@ class LbrycrdApi extends LbryBaseApi {
   /// waits for [timeout] seconds before giving up.
   /// If the API experiences an error, [LbryException] is thrown.
   Future<Map> call(method,
-      {Map<String, dynamic> params = const {}, int timeout = -1}) async {
+      {Map<String, dynamic> params = const {}, int timeout = 0}) async {
 
-    timeout = timeout > -1 ? timeout : this.timeout;
+    timeout = timeout > 0 ? timeout : this.timeout;
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, basicAuth: _basicAuth, timeout: timeout);
