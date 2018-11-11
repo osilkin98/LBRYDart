@@ -44,7 +44,8 @@ class LbryBaseApi {
       jsonResponse = {
         "error": {
           "type": "timeout",
-          "message": "Server timed out after ${timeout} secs"
+          "message": "Server timed out after ${timeout} secs",
+          "code": 420
         }
       };
     } finally {
