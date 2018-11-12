@@ -14,13 +14,13 @@ dependencies:
     lbry_api: any
 ```
 
-Then, instlling for Native Dart or Flutter, you simply
+Then, installing for Native Dart or Flutter, you simply
 run `$ pub get` and `$ flutter packages get`, respectively.
 
 Finally, you import the package in your code:
 
 ```Dart
-import 'package:lbry_api/lbry.dart';
+import 'package:lbry_api/lbry_ap.dart';
 ```
 
 And you're done!
@@ -28,11 +28,11 @@ And you're done!
 
 ## Usage
 
-Simply import `package:lbry/lbry.dart` in your
+Simply import `package:lbry_api/lbry_api.dart` in your
 dart file, and initialize the API objects as follow:
 
 ```dart
-import 'package:lbry_apik/lbry.dart';
+import 'package:lbry_api/lbry_api.dart';
 
 void main() {
   // optional timeout parameter
