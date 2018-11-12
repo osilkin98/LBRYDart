@@ -54,7 +54,9 @@ class LbryBaseApi {
     // We need to format the basic authentication
     if(basicAuth.length == 2) {
       String username = basicAuth[0], password = basicAuth[1];
-
+      String basicAuthString = makeBasicAuth(username, password);
+      headers['Authorization'] = basicAuthString;
+    }
 
     Map jsonResponse;
 
