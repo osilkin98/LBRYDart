@@ -32,3 +32,4 @@ class LbrydApi extends LbryBaseApi {
     return response;
   }
 }
+

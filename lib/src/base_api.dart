@@ -38,7 +38,7 @@ class LbryBaseApi {
       // await for the http response to be returned
       http.Response response = await http
           .post(url, headers: headers, body: jsonData)
-          .timeout(Duration(seconds: timeout));
+          .timeout(Duration(seconds: timeout.abs()));
       jsonResponse = jsonDecode(response.body);
 
       if (jsonResponse.containsKey("error")) {
