@@ -3,7 +3,11 @@ import 'dart:convert'; // For JSON support
 import 'package:http/http.dart' as http;
 
 class LbryBaseApi {
+
   static int _requestId = 0;
+
+    int get requestId => _requestId;
+
 
   /// Makes an HTTP request to the specified LBRY URL
   ///
