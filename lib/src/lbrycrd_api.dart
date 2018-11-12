@@ -35,7 +35,7 @@ class LbrycrdApi extends LbryBaseApi {
         params: params, basicAuth: _basicAuth, timeout: timeout);
 
     if(response.containsKey("error")) {
-      throw(response);
+      throw(LbryException(response));
     }
 
     return response;

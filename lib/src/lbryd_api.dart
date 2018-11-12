@@ -34,7 +34,7 @@ class LbrydApi extends LbryBaseApi {
         params: params, timeout: timeout);
 
     if(response.containsKey("error")) {
-      throw(response);
+      throw(LbryException(response));
     }
 
     return response;
