@@ -4,12 +4,9 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 class LbryBaseApi {
+  // Static ID to keep track of each request being sent
   static int _requestId = 0;
-
   int get requestId => _requestId;
-
-
-
 
   /// Makes an HTTP request to the specified LBRY URL
   ///
@@ -20,8 +17,8 @@ class LbryBaseApi {
   /// responds with an error, [LbryException] is thrown.
   static Future<Map> makeRequest(String url, String method,
       {Map<String, dynamic> params = const {},
-      List<String> basicAuth,
-      int timeout = 600}) async {
+      String basicAuthString, int timeout = 600}) async {
+
     // Creates a map for the body of the request
     Map body = {
       "method": method,
@@ -30,20 +27,21 @@ class LbryBaseApi {
       "id": ++LbryBaseApi._requestId
     };
 
+    // Formats the body map as a JSON Serialized String
     String jsonData = jsonEncode(body);
 
+    // Create the headers for the POST Request
     Map<String, String> headers = {
       "Content-Type": "application/json-rpc",
       "user-agent": "LBRY Dart 2.0.0 API"
     };
 
-    // We need to format the basic authentication
-    if(basicAuth.length == 2) {
-      String username = basicAuth[0], password = basicAuth[1];
-      String basicAuthString = makeBasicAuth(username, password);
+    // If we were provided with a basicAuthString then put it in headers
+    if (basicAuthString != null) {
       headers['Authorization'] = basicAuthString;
     }
 
+    // Initialize the map to store response
     Map jsonResponse;
 
     try {
