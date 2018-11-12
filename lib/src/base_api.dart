@@ -72,7 +72,7 @@ class LbryBaseApi {
          */
         jsonResponse = {
           "error": {
-            "type": "unknown",
+            "type": "${error.runtimeType}",
             "message": "${error.toString()}",
             "code": 32768
           }
