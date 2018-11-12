@@ -39,12 +39,19 @@ class LbryBaseApi {
       http.Response response = await http
           .post(url, headers: headers, body: jsonData)
           .timeout(Duration(seconds: timeout.abs()));
+
+      // Turn JSON String into a Dart Map object
       jsonResponse = jsonDecode(response.body);
 
+      /* Checks to see if the response errored out */
       if (jsonResponse.containsKey("error")) {
         throw LbryException(jsonResponse);
       }
+
     } catch (error) {
+
+      print(jsonResponse);
+
       if (error is TimeoutException) {
         jsonResponse = {
           "error": {
