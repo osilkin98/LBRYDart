@@ -1,3 +1,6 @@
+# 0.2.1
+Minor change to `README.md`
+
 # 0.2.0
 Renames package from `lbry` to `lbry_api`
 
