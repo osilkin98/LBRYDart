@@ -47,6 +47,11 @@ class LbryBaseApi {
       "user-agent": "LBRY Dart 2.0.0 API"
     };
 
+    // We need to format the basic authentication
+    if(basicAuth.length == 2) {
+      String username = basicAuth[0], password = basicAuth[1];
+
+
     Map jsonResponse;
 
     try {
