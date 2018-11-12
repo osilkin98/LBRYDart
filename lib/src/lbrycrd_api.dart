@@ -2,7 +2,6 @@ import 'dart:async';
 import 'base_api.dart';
 import 'exceptions.dart';
 
-
 class LbrycrdApi extends LbryBaseApi {
   final int timeout;
   static const String url = "http://localhost:9245";
@@ -28,14 +27,13 @@ class LbrycrdApi extends LbryBaseApi {
   /// then [LbryException] is thrown.
   Future<Map> call(method,
       {Map<String, dynamic> params = const {}, int timeout = 0}) async {
-
     timeout = timeout > 0 ? timeout : this.timeout;
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, basicAuth: _basicAuth, timeout: timeout);
 
-    if(response.containsKey("error")) {
-      throw(LbryException(response));
+    if (response.containsKey("error")) {
+      throw (LbryException(response));
     }
 
     return response;

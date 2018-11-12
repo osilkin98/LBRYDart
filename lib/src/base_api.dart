@@ -3,11 +3,9 @@ import 'dart:convert'; // For JSON support
 import 'package:http/http.dart' as http;
 
 class LbryBaseApi {
-
   static int _requestId = 0;
 
-    int get requestId => _requestId;
-
+  int get requestId => _requestId;
 
   /// Makes an HTTP request to the specified LBRY URL
   ///
@@ -45,10 +43,7 @@ class LbryBaseApi {
 
       // Turn JSON String into a Dart Map object
       jsonResponse = jsonDecode(response.body);
-
-
     } catch (error) {
-
       print(jsonResponse);
 
       if (error is TimeoutException) {
@@ -56,7 +51,7 @@ class LbryBaseApi {
           "error": {
             "type": "timeout",
             "message": "Server timed out after ${timeout} secs",
-            "code": 408  // Timeout code
+            "code": 408 // Timeout code
           }
         };
       } else {

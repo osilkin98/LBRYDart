@@ -10,16 +10,20 @@ class LbryException implements Exception {
    * the [statusCode] int, [message] String, and [data] List are
    * all obtained from the `error` field in [response].
    */
-  LbryException(this.response) :
-      requestId = response["id"],
-      statusCode = response["error"].containsKey("code") ?
-        response["error"]["code"] : 0,
-      message = response["error"].containsKey("message") ?
-        response["error"]["message"] : "",
-      data = response["error"].containsKey("data") ?
-        response["error"]["data"] : const [];
+  LbryException(this.response)
+      : requestId = response["id"],
+        statusCode = response["error"].containsKey("code")
+            ? response["error"]["code"]
+            : 0,
+        message = response["error"].containsKey("message")
+            ? response["error"]["message"]
+            : "",
+        data = response["error"].containsKey("data")
+            ? response["error"]["data"]
+            : const [];
 
-  String toString() => "Request ID #$requestId got Error: "+
+  String toString() =>
+      "Request ID #$requestId got Error: " +
       "$message, (Status Code: ${statusCode})";
 
   Map error() => response["error"];
