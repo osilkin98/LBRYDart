@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:lbry_api/lbry.dart';
+import 'package:lbry_api/lbry_api.dart';
 
 
 void main() async {
   
   /*  This API provides two classes, LbrydApi and LbrycrdApi.
-   *  To call either simply import lbry/lbry.dart, and initialize them. 
+   *  To call either simply import lbry/lbry_api.dart, and initialize them.
    */
   
   // Returns an object of type LbrydApi
