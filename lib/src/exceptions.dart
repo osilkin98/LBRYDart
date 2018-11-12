@@ -20,7 +20,7 @@ class LbryException implements Exception {
         response["error"]["data"] : const [];
 
   String toString() => "Request ID #$requestId got Error: "+
-      "[$statusCode]: $message, (Status Code: ${statusCode})";
+      "$message, (Status Code: ${statusCode})";
 
   Map error() => response["error"];
 }
