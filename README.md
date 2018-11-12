@@ -50,6 +50,8 @@ void main() {
 }
 ```
 
+For a more detailed example, see `example/main.dart`.
+
 #### Feedback
 If you would like to provide feedback or find a bug, simply
 open an issue in the [github repository](https://github.com/osilkin98/lbrydart).
