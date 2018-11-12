@@ -10,15 +10,19 @@ class LbryBaseApi {
 
 
   static String makeBasicAuth(String username, String password) {
-    Latin1Encoder latin1encoder;
-    Uint8List latinUser = latin1encoder.convert(username),
-              latinPass = latin1encoder.convert(password);
+    Latin1Encoder latin1Encoder;
 
+    Uint8List bytesUser = latin1Encoder.convert(username),
+              bytesPass = latin1Encoder.convert(password),
+              sep = latin1Encoder.convert(':');
 
+    Uint8List bytes = bytesUser + sep + bytesPass;
 
+    String encodedAuth = Base64Encoder().convert(bytes);
+
+    return "Basic " + encodedAuth;
 
     }
-  }
 
 
   /// Makes an HTTP request to the specified LBRY URL
