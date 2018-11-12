@@ -48,7 +48,7 @@ class LbrycrdApi extends LbryBaseApi {
     timeout = timeout > 0 ? timeout : this.timeout;
 
     Map response = await LbryBaseApi.makeRequest(url, method,
-        params: params, basicAuth: _basicAuth, timeout: timeout);
+        params: params, basicAuthString: _basicAuthString, timeout: timeout);
 
     if (response.containsKey("error")) {
       throw (LbryException(response));
