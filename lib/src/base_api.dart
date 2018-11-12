@@ -53,7 +53,18 @@ class LbryBaseApi {
             "code": 408  // Timeout code
           }
         };
-
+      } else {
+        /* uses 2^15 as the error code for an unknown error
+         since LBRY's server error codes are 16 bit signed integers,
+          so 2^15 is a number that can never be returned from LBRY
+         */
+        jsonResponse = {
+          "error": {
+            "type": "unknown",
+            "message": "${error.toString()}",
+            "code": 32768
+          }
+        };
       }
     } finally {
       return jsonResponse;
