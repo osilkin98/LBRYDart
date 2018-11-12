@@ -50,7 +50,7 @@ class LbryBaseApi {
           "error": {
             "type": "timeout",
             "message": "Server timed out after ${timeout} secs",
-            "code": 420
+            "code": 408  // Timeout code
           }
         };
 
