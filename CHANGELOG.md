@@ -1,3 +1,6 @@
+# 0.2.0
+Renames package from `lbry` to `lbry_api`
+
 # 0.1.6
 Describes the installation procedure in `README.md`
 

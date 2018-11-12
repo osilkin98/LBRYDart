@@ -1,4 +1,4 @@
-name: lbry
+name: lbry_api
 description: >-
   LBRY API binding for the Dart language.
   Use this library in order to make API calls to the

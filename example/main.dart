@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:lbry/lbry.dart';
+import 'package:lbry_api/lbry.dart';
 
 
 void main() async {

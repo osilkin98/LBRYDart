@@ -6,12 +6,12 @@ Placeholder for actual information about this binding
 ## Installation 
 
 
-To install this package, first include `lbry` in your 
+To install this package, first include `lbry_api` in your
 `dependencies` in your project's `pubspec.yaml`:
 
 ```yaml
 dependencies:
-    lbry: any
+    lbry_api: any
 ```
 
 Then, instlling for Native Dart or Flutter, you simply
@@ -20,7 +20,7 @@ run `$ pub get` and `$ flutter packages get`, respectively.
 Finally, you import the package in your code:
 
 ```Dart
-import 'package:lbry/lbry.dart';
+import 'package:lbry_api/lbry.dart';
 ```
 
 And you're done!
@@ -32,7 +32,7 @@ Simply import `package:lbry/lbry.dart` in your
 dart file, and initialize the API objects as follow:
 
 ```dart
-import 'package:lbry/lbry.dart';
+import 'package:lbry_apik/lbry.dart';
 
 void main() {
   // optional timeout parameter
