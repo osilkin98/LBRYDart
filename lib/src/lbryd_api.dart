@@ -6,6 +6,7 @@ import 'exceptions.dart';
 * only written to be used with the Lbryd network */
 
 class LbrydApi extends LbryBaseApi {
+
   final int timeout;
   static const String url = "http://localhost:5279";
 
@@ -15,6 +16,7 @@ class LbrydApi extends LbryBaseApi {
   /// set [url], and timeout after [timeout] seconds have
   /// passed since we've last made contact to the server.
   LbrydApi([this.timeout = 600]);
+
 
   /// Makes a Call to the LBRYD API
   ///
