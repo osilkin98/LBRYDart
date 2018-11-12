@@ -5,13 +5,26 @@ Placeholder for actual information about this binding
 
 ## Installation 
 
-To install this package, include `lbry` in your 
+
+To install this package, first include `lbry` in your 
 `dependencies` in your project's `pubspec.yaml`:
 
 ```yaml
 dependencies:
     lbry: any
 ```
+
+Then, instlling for Native Dart or Flutter, you simply
+run `$ pub get` and `$ flutter packages get`, respectively.
+
+Finally, you import the package in your code:
+
+```Dart
+import 'package:lbry/lbry.dart';
+```
+
+And you're done!
+
 
 ## Usage
 
@@ -39,4 +52,4 @@ void main() {
 
 #### Feedback
 If you would like to provide feedback or find a bug, simply
-open an issue in the [github repository](https://github.com/osilkin98/lbrydart)
+open an issue in the [github repository](https://github.com/osilkin98/lbrydart).

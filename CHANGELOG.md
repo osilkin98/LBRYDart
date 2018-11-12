@@ -1,5 +1,8 @@
+# 0.1.6
+Describes the installation procedure in `README.md`
+
 # 0.1.5
-Provides a clear and descriptive `README.md`
+Provides a clear and descriptive usage in `README.md`
 
 # 0.1.4
 Removes verbosity from description

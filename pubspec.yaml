@@ -4,7 +4,7 @@ description: >-
   Use this library in order to make API calls to the
   lbry network as its running in the background.
 
-version: 0.1.5
+version: 0.1.6
 author: Oleg Silkin <o.silkin98@gmail.com>
 homepage: https://github.com/osilkin98/LBRYDart
 documentation:
