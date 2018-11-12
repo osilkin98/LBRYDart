@@ -16,9 +16,8 @@ class LbrycrdApi extends LbryBaseApi {
    * lbrycrd network, and sets it to timeout after [timeout]
    * seconds of unresponsiveness. The default [timeout] is 600 seconds.
    */
-  LbrycrdApi(String username, String password, {this.timeout = 600}) :
-      _basicAuthString = makeBasicAuth(username, password);
-
+  LbrycrdApi(String username, String password, {this.timeout = 600})
+      : _basicAuthString = makeBasicAuth(username, password);
 
   static String makeBasicAuth(String username, String password) {
     Utf8Encoder UTF8 = Utf8Encoder();
@@ -28,9 +27,7 @@ class LbrycrdApi extends LbryBaseApi {
     String encodedAuth = Base64Encoder().convert(bytes);
 
     return "Basic " + encodedAuth;
-
   }
-
 
   /**
    * Makes a call to the LBRYCRD API

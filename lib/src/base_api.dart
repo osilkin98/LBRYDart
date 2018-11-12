@@ -19,8 +19,8 @@ class LbryBaseApi {
    */
   static Future<Map> makeRequest(String url, String method,
       {Map<String, dynamic> params = const {},
-      String basicAuthString, int timeout = 600}) async {
-
+      String basicAuthString,
+      int timeout = 600}) async {
     // Creates a map for the body of the request
     Map body = {
       "method": method,
