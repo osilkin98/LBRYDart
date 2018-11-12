@@ -1,6 +1,6 @@
 name: lbry
 description: LBRY API binding for the Dart Programming language
-version: 0.1.0
+version: 0.1.2
 author: Oleg Silkin <o.silkin98@gmail.com>
 homepage: https://github.com/osilkin98/LBRYDart
 documentation:
