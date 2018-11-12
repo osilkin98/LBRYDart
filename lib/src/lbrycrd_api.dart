@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'base_api.dart';
 import 'exceptions.dart';
 
@@ -12,10 +14,26 @@ class LbrycrdApi extends LbryBaseApi {
   /// Uses the credentials [_basicAuth] to log into the
   /// lbrycrd network, and sets it to timeout after [timeout]
   /// seconds of unresponsiveness. The default [timeout] is 600 seconds.
-  LbrycrdApi(this._basicAuth, {this.timeout = 600});
+  LbrycrdApi(String username, String password, {this.timeout = 600}) {
 
-  LbrycrdApi.credentials(String username, String password, {this.timeout = 600})
-      : _basicAuth = [username, password];
+  }
+
+
+  static String makeBasicAuth(String username, String password) {
+    Latin1Encoder latin1Encoder;
+
+    Uint8List bytesUser = latin1Encoder.convert(username),
+              bytesPass = latin1Encoder.convert(password),
+              sep = latin1Encoder.convert(':');
+
+    Uint8List bytes = bytesUser + sep + bytesPass;
+
+    String encodedAuth = Base64Encoder().convert(bytes);
+
+    return "Basic " + encodedAuth;
+
+    }
+
 
   /// Makes a call to the LBRYCRD API
   ///
