@@ -22,13 +22,9 @@ class LbrycrdApi extends LbryBaseApi {
 
 
   static String makeBasicAuth(String username, String password) {
-    Latin1Encoder latin1Encoder;
+    Utf8Encoder UTF8 = Utf8Encoder();
 
-    Uint8List bytesUser = latin1Encoder.convert(username),
-              bytesPass = latin1Encoder.convert(password),
-              sep = latin1Encoder.convert(':');
-
-    Uint8List bytes = bytesUser + sep + bytesPass;
+    List<int> bytes = UTF8.convert(username + ':' + password);
 
     String encodedAuth = Base64Encoder().convert(bytes);
 
