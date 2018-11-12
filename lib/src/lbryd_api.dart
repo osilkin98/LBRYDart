@@ -25,7 +25,7 @@ class LbrydApi extends LbryBaseApi {
   /// the instanced [self.timeout] count. If the [response] contains
   /// an error from the LBRY API, then []
   Future<Map> call(String method,
-      {Map<String, dynamic> params = const {}, int timeout}) async {
+      {Map<String, dynamic> params = const {}, int timeout = 0}) async {
 
     // If the user overrides the instanced timeout
     timeout = timeout > 0 ? timeout : this.timeout;
