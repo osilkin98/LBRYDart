@@ -1,11 +1,10 @@
 name: lbry
 description: >-
-  LBRY API binding for the Dart Programming language.
+  LBRY API binding for the Dart language.
   Use this library in order to make API calls to the
-  LBRY daemon as its running in the background.
-  Currently Supports both lbryd and lbrycrd.
+  lbry network as its running in the background.
 
-version: 0.1.3
+version: 0.1.4
 author: Oleg Silkin <o.silkin98@gmail.com>
 homepage: https://github.com/osilkin98/LBRYDart
 documentation:
