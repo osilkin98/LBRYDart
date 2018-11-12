@@ -1,5 +1,5 @@
 class LbryException implements Exception {
-  final int statusCode;
+  final int statusCode, requestId;
   final String message;
   final Map response;
   final List data;
@@ -11,12 +11,16 @@ class LbryException implements Exception {
    * all obtained from the `error` field in [response].
    */
   LbryException(this.response) :
-        statusCode = response["error"].containsKey("code") ?
-          response["error"]["code"] : 0,
-        message = response["error"].containsKey("message") ?
-          response["error"]["message"] : "",
-        data = response["error"].containsKey("data") ?
-          response["error"]["data"] : const [];
+      requestId = response["id"],
+      statusCode = response["error"].containsKey("code") ?
+        response["error"]["code"] : 0,
+      message = response["error"].containsKey("message") ?
+        response["error"]["message"] : "",
+      data = response["error"].containsKey("data") ?
+        response["error"]["data"] : const [];
 
-  String toString() => message;
+  String toString() => "Request ID #$requestId got Error: "+
+      "[$statusCode]: $message, (Status Code: ${statusCode})";
+
+  Map error() => response["error"];
 }
