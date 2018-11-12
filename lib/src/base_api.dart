@@ -1,11 +1,25 @@
 import 'dart:async';
-import 'dart:convert'; // For JSON support
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 class LbryBaseApi {
   static int _requestId = 0;
 
   int get requestId => _requestId;
+
+
+  static String makeBasicAuth(String username, String password) {
+    Latin1Encoder latin1encoder;
+    Uint8List latinUser = latin1encoder.convert(username),
+              latinPass = latin1encoder.convert(password);
+
+
+
+
+    }
+  }
+
 
   /// Makes an HTTP request to the specified LBRY URL
   ///
