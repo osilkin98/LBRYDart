@@ -5,9 +5,12 @@ import 'base_api.dart';
 import 'exceptions.dart';
 
 class LbrycrdApi extends LbryBaseApi {
+  /* Basic Variables */
   final int timeout;
   static const String url = "http://localhost:9245";
-  List<String> _basicAuth;
+  String _basicAuthString;
+
+
 
   /// Constructs a LBRYCRD API object
   ///
