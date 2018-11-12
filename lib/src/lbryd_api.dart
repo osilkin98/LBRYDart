@@ -10,22 +10,26 @@ class LbrydApi extends LbryBaseApi {
   final int timeout;
   static const String url = "http://localhost:5279";
 
-  /// Creates an instance of [LbrydApi]
-  ///
-  /// Creates an instance of [LbrydApi] to run on the
-  /// set [url], and timeout after [timeout] seconds have
-  /// passed since we've last made contact to the server.
+  /**
+   * Creates an instance of [LbrydApi]
+   *
+   * Creates an instance of [LbrydApi] to run on the
+   * set [url], and timeout after [timeout] seconds have
+   * passed since we've last made contact to the server.
+   */
   LbrydApi([this.timeout = 600]);
 
 
-  /// Makes a Call to the LBRYD API
-  ///
-  /// Makes an API call for the function [method] with the given
-  /// parameters [params]. The request is made to the LBRYD
-  /// network, which should be running at the [url] specified as
-  /// `localhost:5279`. If [timeout] is specified, then it overrides
-  /// the instanced [self.timeout] count. If the [response] contains
-  /// an error from the LBRY API, then []
+  /**
+   * Makes a Call to the LBRYD API
+   *
+   * Makes an API call for the function [method] with the given
+   * parameters [params]. The request is made to the LBRYD
+   * network, which should be running at the [url] specified as
+   * `localhost:5279`. If [timeout] is specified, then it overrides
+   * the instanced [self.timeout] count. If the [response] contains
+   * an error from the LBRY API, then []
+   */
   Future<Map> call(String method,
       {Map<String, dynamic> params = const {}, int timeout = 0}) async {
     // If the user overrides the instanced timeout
