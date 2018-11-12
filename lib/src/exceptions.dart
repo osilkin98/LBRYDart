@@ -18,4 +18,5 @@ class LbryException implements Exception {
         data = response["error"].containsKey("data") ?
           response["error"]["data"] : const [];
 
+  String toString() => message;
 }
