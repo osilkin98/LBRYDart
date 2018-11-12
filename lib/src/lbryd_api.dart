@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'base_api.dart';
+import 'exceptions.dart';
 
 /* This is the API file for the Lbryd API. Everything here is
 * only written to be used with the Lbryd network */
@@ -21,7 +22,8 @@ class LbrydApi extends LbryBaseApi {
   /// parameters [params]. The request is made to the LBRYD
   /// network, which should be running at the [url] specified as
   /// `localhost:5279`. If [timeout] is specified, then it overrides
-  /// the initialized
+  /// the instanced [self.timeout] count. If the [response] contains
+  /// an error from the LBRY API, then []
   Future<Map> call(String method,
       {Map<String, dynamic> params = const {}, int timeout = 0}) async {
 
@@ -29,6 +31,11 @@ class LbrydApi extends LbryBaseApi {
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, timeout: timeout);
+
+    if(response.containsKey("error")) {
+      throw(response);
+    }
+
     return response;
   }
 }

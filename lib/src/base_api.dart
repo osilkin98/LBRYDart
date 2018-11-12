@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert'; // For JSON support
 import 'package:http/http.dart' as http;
-import 'exceptions.dart';
 
 class LbryBaseApi {
   static int _requestId = 0;
@@ -43,10 +42,6 @@ class LbryBaseApi {
       // Turn JSON String into a Dart Map object
       jsonResponse = jsonDecode(response.body);
 
-      /* Checks to see if the response errored out */
-      if (jsonResponse.containsKey("error")) {
-        throw LbryException(jsonResponse);
-      }
 
     } catch (error) {
 

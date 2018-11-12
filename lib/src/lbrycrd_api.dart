@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'base_api.dart';
+import 'exceptions.dart';
+
 
 class LbrycrdApi extends LbryBaseApi {
   final int timeout;
@@ -22,7 +24,8 @@ class LbrycrdApi extends LbryBaseApi {
   /// [params] in the LBRYCRD API, and the username and
   /// password pair [_basicAuth] to authenticate. The client
   /// waits for [timeout] seconds before giving up.
-  /// If the API experiences an error, [LbryException] is thrown.
+  /// If the response from the API contains an error,
+  /// then [LbryException] is thrown.
   Future<Map> call(method,
       {Map<String, dynamic> params = const {}, int timeout = 0}) async {
 
@@ -30,6 +33,10 @@ class LbrycrdApi extends LbryBaseApi {
 
     Map response = await LbryBaseApi.makeRequest(url, method,
         params: params, basicAuth: _basicAuth, timeout: timeout);
+
+    if(response.containsKey("error")) {
+      throw(response);
+    }
 
     return response;
   }
