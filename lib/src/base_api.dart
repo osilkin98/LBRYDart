@@ -8,13 +8,15 @@ class LbryBaseApi {
   static int _requestId = 0;
   int get requestId => _requestId;
 
-  /// Makes an HTTP request to the specified LBRY URL
-  ///
-  /// Sends a JSON-RPC 2.0 POST request to [url] specifying that
-  /// it wants to perform the function [method] with the parameters
-  /// [params] using the username and password pair [basicAuth]
-  /// and times out after [timeout] seconds. If the server
-  /// responds with an error, [LbryException] is thrown.
+  /**
+   * Makes an HTTP request to the specified LBRY URL
+   *
+   * Sends a JSON-RPC 2.0 POST request to [url] specifying that
+   * it wants to perform the function [method] with the parameters
+   * [params] using the username and password pair [basicAuth]
+   * and times out after [timeout] seconds. If the server
+   * responds with an error, [LbryException] is thrown.
+   */
   static Future<Map> makeRequest(String url, String method,
       {Map<String, dynamic> params = const {},
       String basicAuthString, int timeout = 600}) async {
